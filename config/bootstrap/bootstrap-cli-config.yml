@@ -56,17 +56,23 @@ bootstrap:
     # Mapping between IDP (Azure Active Directory) groups and CDF groups.
     idp-cdf-mappings:
     # Support multiple CDF Projects, like dev/test/prod in one config.
-        - cdf-project: cdf-bootcamp-80-test # i.e. bootcamp-01-test
+        - cdf-project: cdf-bootcamp-80-test
           mappings:
               - cdf-group: cdf:root
                 idp-source-id: 0fe520a2-2e59-402c-b408-c439fb553d2c
                 idp-source-name: bootcamp-80-test-admin
               - cdf-group: cdf:all:owner
-                idp-source-id: b0d3b825-795a-44c6-baa5-68660fd187c9 # for the AAD Group to be matched to cdf-group
-                idp-source-name: bootcamp-80-test-all-owner # i.e. bootcamp-01-test-all-owner
+                idp-source-id: b0d3b825-795a-44c6-baa5-68660fd187c9
+                idp-source-name: bootcamp-80-test-all-owner
               - cdf-group: cdf:all:read
-                idp-source-id: e3e996dc-46b9-4b5e-90c1-dd37c3594a98 # for the AAD Group to be matched to cdf-group
-                idp-source-name: bootcamp-80-test-all-read # i.e. bootcamp-01-test-all-read
+                idp-source-id: e3e996dc-46b9-4b5e-90c1-dd37c3594a98
+                idp-source-name: bootcamp-80-test-all-read
+              - cdf-group: cdf:uc:001:oee:owner
+                idp-source-id: c909e647-8b58-4ec7-9095-38b0b39d94da
+                idp-source-name: bootcamp-80-test-uc-001-oee-owner
+              - cdf-group: cdf:uc:001:oee:read
+                idp-source-id: 32f0a3b4-0a67-480e-871c-fecb938acf2a
+                idp-source-name: bootcamp-80-test-uc-001-oee-read
 
         - cdf-project: cdf-bootcamp-80-prod
           mappings:
@@ -79,21 +85,27 @@ bootstrap:
               - cdf-group: cdf:all:read
                 idp-source-id: 431c8882-7003-4cb8-8260-230ac929d9c9
                 idp-source-name: bootcamp-80-prod-all-read
+              - cdf-group: cdf:uc:001:oee:owner
+                idp-source-id: ae5df806-dc26-4af0-aa4c-7c41596eef33
+                idp-source-name: bootcamp-80-prod-uc-001-oee-owner
+              - cdf-group: cdf:uc:001:oee:read
+                idp-source-id: de314470-eb73-4614-9b4d-496be68afec3
+                idp-source-name: bootcamp-80-prod-uc-001-oee-read
 
     namespaces:
         # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
         - ns-name: src
-          description: Data sources for the Ice Cream Factory # HINT
+          description: Data sources for the Ice Cream Factory
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
               - node-name: src:001:sap
-                description: Data from SAP # HINT
+                description: Data from SAP
               - node-name: src:002:opcua
-                description: Data from opcua # HINT
+                description: Data from opcua
 
         - ns-name: uc
-          description: Use cases representing the data/products # HINT
+          description: Use cases representing the data/products
 
           ns-nodes:
               - node-name: uc:001:oee
